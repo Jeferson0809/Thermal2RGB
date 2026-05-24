@@ -1,3 +1,4 @@
+#Pasar video partido en frames thermal a RGB
 import os
 import cv2
 import torch
