@@ -1,0 +1,20 @@
+VIDEO_PATH = /home/jeferson/imagenes/1000501_filtered.mp4
+START_FRAME = 88
+MAX_FRAMES = 16
+FRAME_STEP = 1
+
+WIDTH = 1024
+HEIGHT = 1024
+SEED = 42
+
+FOURIER_SIGMA = 35
+
+NUM_INFERENCE_STEPS = 40
+GUIDANCE_SCALE = 5.0
+CONTROLNET_SCALE = 0.85
+
+IP_ADAPTER_SCALE = 0.65
+
+PROMPT = wildlife trail camera photograph of a small possum walking in forest, realistic wildlife photography, natural anatomy, realistic fur, RAW DSLR wildlife image
+
+NEGATIVE_PROMPT = anime, cartoon, painting, illustration, cgi, cyberpunk, robot, futuristic, deformed anatomy, extra limbs, mutated animal, unrealistic fur, oversaturated, blurry, text, watermark
