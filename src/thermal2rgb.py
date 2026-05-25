@@ -17,10 +17,7 @@ from diffusers import (
 # CONFIG
 # ============================================================
 
-VIDEO_PATH = (
-    "/home/jeferson/imagenes/usables IMAGE/1535926_filtered.mp4"
-
-)
+VIDEO_PATH = "../dataset/1535926_filtered.mp4"
 
 START_FRAME = 45
 
