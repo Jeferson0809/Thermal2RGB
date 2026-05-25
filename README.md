@@ -64,7 +64,7 @@ Final RGB Video
 
 | Fourier Edge Extraction | RGB Generation |
 |---|---|
-| <img src="assets/resultadofourier.gif" width="450"> | <img src="assets/resultadoRGB.gif" width="450"> |
+| <img src="assets/resultadofourier.gif" width="400"> | <img src="assets/resultadoRGB.gif" width="400"> |
 
 </div>
 
