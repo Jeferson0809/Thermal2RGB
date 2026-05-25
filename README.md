@@ -1,7 +1,7 @@
 <div align="center">
 
 # Thermal2RGB - Fourier
-<img width="1774" height="887" alt="THERMAL" src="https://github.com/user-attachments/assets/124bb2cd-58fc-44e0-96fd-8a7f16fd444a" />
+<img width="1200" height="500" alt="THERMAL" src="assets/THERMAL.png" />
 
 ### Generación de imágenes RGB a partir de videos térmicos utilizando Fourier.
 
@@ -22,23 +22,12 @@ Además, se incorpora consistencia temporal utilizando IP-Adapter para mejorar l
 
 > **Objetivo:** Utilizar información estructural obtenida en el dominio de Fourier para guiar modelos generativos y transformar videos térmicos en secuencias RGB coherentes.
 
----
-
-# Resultados
-
-## RGB Generation
-
-<p align="center">
-  <img src="assets/resultadoRGB.gif" width="700">
-</p>
 
 ---
 
-## Fourier Edge Extraction
+# Arquitectura
 
-<p align="center">
-  <img src="assets/resultadofourier.gif" width="700">
-</p>
+<img width="1500" height="700" alt="THERMAL" src="assets/arquitectura.jpeg" />
 
 ---
 
@@ -66,18 +55,34 @@ SDXL RGB Generation
 IP-Adapter Temporal Consistency
       ↓
 Final RGB Video
+
 ```
+
+# Resultados
+
+<div align="center">
+
+| Fourier Edge Extraction | RGB Generation |
+|---|---|
+| <img src="assets/resultadofourier.gif" width="450"> | <img src="assets/resultadoRGB.gif" width="450"> |
+
+</div>
+
+---
+
+
 
 ---
 
 # Estructura del repositorio
 
-- `dataset/` — Videos térmicos utilizados para pruebas y generación.
+- `dataset/` — Videos térmicos utilizados para pruebas y generación obtenidos de https://lila.science/datasets/new-zealand-wildlife-thermal-imaging/
 - `assets/` — GIFs y visualizaciones de resultados.
 - `outputs/` — Resultados generados por el pipeline.
 - `src/` — Implementación principal del pipeline Thermal-to-RGB.
   - `edgesfourier.py` — Extracción de bordes mediante Fourier.
-  - `thermal2rgb.py` — Pipeline completo de generación RGB.
+  - `thermal2rgb.py` — Pipeline completo de generación RGB para videos.
+  - `thermal2rgb2.py` — Pipeline completo de generación RGB para imagenes.
 - `README.md` — Documentación principal del proyecto.
 
 ---
@@ -150,17 +155,6 @@ python src/thermal2rgb.py
 
 ---
 
-# Dataset
-
-El repositorio incluye múltiples videos térmicos utilizados para experimentación y pruebas visuales.
-
-Ejemplos:
-- Wildlife thermal footage
-- Secuencias nocturnas
-- Videos térmicos de animales
-
----
-
 # Salidas generadas
 
 El pipeline produce automáticamente:
@@ -173,19 +167,3 @@ rgb_consistent/
 consistent_video.mp4
 ```
 
----
-
-# Trabajo futuro
-
-- Generación en tiempo real.
-- Video diffusion models.
-- Temporal attention mechanisms.
-- Optical flow stabilization.
-- Fine-tuning especializado para imágenes térmicas.
-- Multi-frame conditioning.
-
----
-
-# Licencia
-
-MIT License
