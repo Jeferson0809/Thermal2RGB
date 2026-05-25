@@ -121,35 +121,19 @@ Estos mapas son utilizados posteriormente como condición estructural para Contr
 
 ---
 
-# Instalación
-
-Clonar el repositorio:
-
-```bash
-git clone https://github.com/Jeferson0809/Thermal2RGB.git
-
-cd Thermal2RGB
-```
-
-Instalar dependencias:
-
-```bash
-pip install -r requirements.txt
-```
-
----
-
 # Uso
 
-## Extracción de bordes Fourier
+## Thermal-to-RGB Pipeline
 
-```bash
-python src/edgesfourier.py
-```
+El script principal ejecuta automáticamente todo el pipeline:
 
----
-
-## Generación Thermal-to-RGB
+- Preprocesamiento térmico
+- CLAHE enhancement
+- OTSU segmentation
+- Fourier edge extraction
+- ControlNet conditioning
+- SDXL RGB generation
+- IP-Adapter temporal consistency
 
 ```bash
 python src/thermal2rgb.py
@@ -157,15 +141,85 @@ python src/thermal2rgb.py
 
 ---
 
-# Salidas generadas
+## Modelos utilizados
 
-El pipeline produce automáticamente:
+Durante la ejecución, el pipeline descarga automáticamente:
 
-```bash
-thermal/
-fourier/
-rgb/
-rgb_consistent/
-consistent_video.mp4
+- RealVisXL V4.0
+- SDXL ControlNet SoftEdge
+- IP-Adapter SDXL
+
+---
+
+## Selección de frame referencia
+
+Después de generar los primeros resultados RGB, el usuario debe seleccionar manualmente el frame con mejor calidad visual:
+
+```text
+[0] rgb_00000.png
+[1] rgb_00001.png
+...
 ```
 
+Ese frame será utilizado por IP-Adapter como referencia visual para mejorar la consistencia temporal entre frames consecutivos.
+
+---
+
+## Fourier Visualization
+
+El script `edgesfourier.py` permite visualizar el proceso completo de extracción de bordes mediante Fourier:
+
+```bash
+python src/edgesfourier.py
+```
+
+Incluye:
+
+- FFT visualization
+- High-pass filtering
+- Inverse FFT reconstruction
+- Edge extraction pipeline
+
+---
+
+# Salidas generadas
+
+El pipeline genera automáticamente:
+
+```bash
+outputs/
+│
+├── thermal/
+│   ├── thermal_00000.png
+│   └── ...
+│
+├── fourier/
+│   ├── fourier_00000.png
+│   └── ...
+│
+├── rgb/
+│   ├── rgb_00000.png
+│   └── ...
+│
+├── rgb_consistent/
+│   ├── consistent_00000.png
+│   └── ...
+│
+├── consistent_video.mp4
+└── config.txt
+```
+
+### thermal/
+Frames térmicos procesados mediante CLAHE y denoising.
+
+### fourier/
+Mapas de bordes generados mediante Fourier High-Pass Filtering.
+
+### rgb/
+Primera generación RGB usando SDXL + ControlNet.
+
+### rgb_consistent/
+Frames refinados utilizando IP-Adapter para consistencia temporal.
+
+### consistent_video.mp4
+Video RGB final generado automáticamente.
