@@ -91,6 +91,8 @@ Final RGB Video
 
 La etapa de preprocessing utiliza técnicas de procesamiento de imágenes para extraer información estructural desde imágenes térmicas.
 
+<img width="1500" height="700" alt="THERMAL" src="assets/FOURIER.jpeg" />
+
 ## Etapas principales
 
 1. CLAHE para mejora de contraste.
