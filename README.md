@@ -8,7 +8,7 @@
 
 <br>
 
-[Jeferson Acevedo](https://github.com/Jeferson0809) • [Brayan Quintero](https://github.com/BrayanQuintero123)
+[Jeferson Acevedo](https://github.com/Jeferson0809) • [Brayan Quintero](https://github.com/BrayanQuintero123) • [Juan Paipa] •  [Juan Herrera]
 
 ---
 
