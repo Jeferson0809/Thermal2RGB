@@ -12,6 +12,10 @@
 
 ---
 
+Video de prueba de repo: https://youtu.be/IKOEgehN9no
+
+---
+
 </div>
 
 La generación de imágenes RGB a partir de cámaras térmicas es un problema relevante en visión por computador, especialmente en escenarios nocturnos, vigilancia, wildlife monitoring y percepción multimodal.
