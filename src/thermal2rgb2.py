@@ -17,7 +17,7 @@ from diffusers import (
 # CONFIG
 # ============================================================
 
-NPY_PATH = "../imagenes/FLIR0005_temp.npy"
+NPY_PATH = "../dataset/FLIR0005_temp.npy"
 
 WIDTH  = 1024
 HEIGHT = 1024
