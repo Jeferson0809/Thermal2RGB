@@ -221,5 +221,174 @@ Primera generación RGB usando SDXL + ControlNet.
 ### rgb_consistent/
 Frames refinados utilizando IP-Adapter para consistencia temporal.
 
-### consistent_video.mp4
-Video RGB final generado automáticamente.
+
+
+---
+
+# Requisitos de hardware
+
+El pipeline utiliza modelos generativos basados en difusión de alta complejidad, incluyendo:
+
+- SDXL
+- ControlNet
+- IP-Adapter
+
+Por esta razón, se recomienda utilizar una GPU NVIDIA con soporte CUDA.
+
+## Recomendado
+
+- NVIDIA GPU con soporte CUDA
+- 8GB+ VRAM recomendado
+- 16GB+ RAM del sistema
+- Python 3.10+
+
+## Probado en
+
+- NVIDIA RTX PRO 6000 Blackwell
+- CUDA 12+
+- PyTorch 2.6
+
+---
+
+# Instalación
+
+Clonar el repositorio:
+
+```bash
+git clone https://github.com/Jeferson0809/Thermal2RGB.git
+
+cd Thermal2RGB
+```
+
+Crear entorno virtual:
+
+```bash
+python -m venv venv
+```
+
+Activar entorno virtual:
+
+## Windows
+
+```bash
+venv\Scripts\activate
+```
+
+## Linux / MacOS
+
+```bash
+source venv/bin/activate
+```
+
+---
+
+# Instalación de PyTorch con CUDA
+
+Instalar PyTorch con soporte CUDA desde:
+
+https://pytorch.org/get-started/locally/
+
+Ejemplo:
+
+```bash
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu124
+```
+
+---
+
+# Dependencias
+
+Instalar dependencias restantes:
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+# Primera ejecución
+
+Durante la primera ejecución, los modelos serán descargados automáticamente desde HuggingFace.
+
+Esto incluye:
+
+- RealVisXL V4.0
+- SDXL ControlNet SoftEdge
+- IP-Adapter SDXL
+
+La descarga inicial puede tardar varios minutos dependiendo de la conexión a internet.
+
+---
+
+# Papers y referencias utilizadas
+
+## ControlNet
+
+Zhang et al. — *Adding Conditional Control to Text-to-Image Diffusion Models*
+
+https://arxiv.org/abs/2302.05543
+
+---
+
+## Stable Diffusion XL (SDXL)
+
+Podell et al. — *SDXL: Improving Latent Diffusion Models for High-Resolution Image Synthesis*
+
+https://arxiv.org/abs/2307.01952
+
+---
+
+## Latent Diffusion Models
+
+Rombach et al. — *High-Resolution Image Synthesis with Latent Diffusion Models*
+
+https://arxiv.org/abs/2112.10752
+
+---
+
+## IP-Adapter
+
+Ye et al. — *IP-Adapter: Text Compatible Image Prompt Adapter for Text-to-Image Diffusion Models*
+
+https://arxiv.org/abs/2308.06721
+
+---
+
+# Limitaciones
+
+Debido al uso de SDXL y ControlNet, GPUs con baja VRAM pueden presentar errores de memoria durante la carga o generación de imágenes.
+
+Para GPUs limitadas, se recomienda:
+
+- Reducir resolución de generación
+- Reducir número de inference steps
+- Reducir cantidad de frames procesados
+
+Ejemplo:
+
+```python
+WIDTH  = 512
+HEIGHT = 512
+
+NUM_INFERENCE_STEPS = 20
+
+MAX_FRAMES = 4
+```
+
+---
+
+# Trabajo futuro
+
+- Video diffusion models
+- Temporal attention mechanisms
+- Real-time inference
+- Optical flow stabilization
+- Fine-tuning especializado para imágenes térmicas
+- Multi-frame conditioning
+- Fourier-conditioned diffusion architectures
+
+---
+
+# Licencia
+
+MIT License
